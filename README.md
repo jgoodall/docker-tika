@@ -14,15 +14,21 @@ To change the port and/or memory allocation to listen on, run:
 
 ```docker run --env PORT=9123 --env MEMORY=4g -p 9123:9123 jgoodall/tika```
 
-## Docker
+To test, send a document to the server:
+
+```
+curl -H "Accept: application/json" -T testfile.pdf http://localhost:9998/meta
+```
+
+## Build Docker Image
 
 To build and push the image to docker hub:
 
 ```sh
-VERS=v0.0.1
+VERS=v0.1.0
 git tag -a $VERS
-docker build -t jgoodall/tika:latest .
-docker push jgoodall/tika:latest
-docker build -t jgoodall/tika:$VERS .
+git push --tag
+docker build -t jgoodall/tika -t jgoodall/tika:$VERS .
+docker push jgoodall/tika
 docker push jgoodall/tika:$VERS
 ```
