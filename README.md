@@ -1,12 +1,18 @@
 # tika-server
 
-This image starts a [Apache Tika Server](https://tika.apache.org/) on port 9998.
+This image starts a [Apache Tika Server](https://tika.apache.org/).
+
+To see the version of Apache Tika, see `ENV TIKA_VERSION` in `Dockerfile`.
 
 ## Usage
 
-To get started, run:
+To get started using the default port to listen on, run:
 
 ```docker run -p 9998:9998 jgoodall/tika```
+
+To change the port and/or memory allocation to listen on, run:
+
+```docker run --env PORT=9123 --env MEMORY=4g -p 9123:9123 jgoodall/tika```
 
 ## Docker
 
