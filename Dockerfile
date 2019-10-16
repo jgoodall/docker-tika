@@ -3,7 +3,7 @@ FROM openjdk:13-slim
 # RUNTIME ENVIRONMENT VARIABLES THAT CAN BE OVERRIDDEN USING:
 # docker run --env KEY=VAL
 ENV PORT 9998
-ENV MEMORY 2g
+ENV MEMORY 1g
 
 EXPOSE ${PORT}
 
@@ -23,4 +23,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN curl -sSL "$TIKA_SERVER_URL" -o /tika-server.jar
 
-ENTRYPOINT exec java -ms${MEMORY} -mx${MEMORY} -jar tika-server.jar --host 0.0.0.0 --log info --port ${PORT}
+ENTRYPOINT exec java -Xms${MEMORY} -Xmx${MEMORY} -jar tika-server.jar --host 0.0.0.0 --log info --port ${PORT}
