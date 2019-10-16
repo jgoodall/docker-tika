@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		tesseract-ocr-fra \
 		tesseract-ocr-spa \
 		tesseract-ocr-deu \
-	&& curl -sSL "$TIKA_SERVER_URL" -o /tika-server.jar \
 	&& apt-get clean -y \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN curl -sSL "$TIKA_SERVER_URL" -o /tika-server.jar
 
 ENTRYPOINT exec java -ms${MEMORY} -mx${MEMORY} -jar tika-server.jar --host 0.0.0.0 --log info --port ${PORT}
