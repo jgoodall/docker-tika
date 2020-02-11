@@ -25,7 +25,7 @@ curl -H "Accept: application/json" -T testfile.pdf http://localhost:9998/meta
 To build and push the image to docker hub:
 
 ```sh
-VERS=v0.1.3
+VERS=v1.23.0
 git tag -a $VERS
 git push --tag
 docker build -t jgoodall/tika -t jgoodall/tika:$VERS .

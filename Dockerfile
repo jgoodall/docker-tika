@@ -7,7 +7,7 @@ ENV MEMORY 1g
 
 EXPOSE ${PORT}
 
-ENV TIKA_VERSION 1.22
+ENV TIKA_VERSION 1.23
 ENV TIKA_SERVER_URL https://www.apache.org/dist/tika/tika-server-$TIKA_VERSION.jar
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		curl \
