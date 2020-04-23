@@ -7,13 +7,13 @@ ENV MEMORY 1g
 
 EXPOSE ${PORT}
 
-ENV TIKA_VERSION 1.23
+ENV TIKA_VERSION 1.24.1
 ENV TIKA_SERVER_URL https://www.apache.org/dist/tika/tika-server-$TIKA_VERSION.jar
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		curl \
-		gdal-bin \
-		tesseract-ocr \
-		tesseract-ocr-eng \
+	curl \
+	gdal-bin \
+	tesseract-ocr \
+	tesseract-ocr-eng \
 	&& apt-get clean -y \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN curl -sSL "$TIKA_SERVER_URL" -o /tika-server.jar

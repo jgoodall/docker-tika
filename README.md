@@ -2,8 +2,6 @@
 
 This image starts a [Apache Tika Server](https://tika.apache.org/) for text extraction (English only).
 
-To see the version of Apache Tika, see `ENV TIKA_VERSION` in `Dockerfile`.
-
 ## Usage
 
 To get started using the default port to listen on, run:
@@ -25,7 +23,7 @@ curl -H "Accept: application/json" -T testfile.pdf http://localhost:9998/meta
 To build and push the image to docker hub:
 
 ```sh
-VERS=v1.23.0
+VERS=v1.24.1
 git tag -a $VERS
 git push --tag
 docker build -t jgoodall/tika -t jgoodall/tika:$VERS .
